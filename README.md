@@ -13,7 +13,6 @@ The aim of the proposed work is to design and develop a framework to create and 
 The main objectives of this model are:
 * Create doodle images.
 * Classify or recognize doodle images.
-* Helps to know the name of the unknown object by doodling them.
 ## Architecture
 1. Application will provide us with two input options. 
    1. First, doodles can be created on paper and scanned so that the application can recognize them. 
