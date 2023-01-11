@@ -19,11 +19,12 @@ The main objectives of this model are:
    2. Second, it can be obtained by drawing in the air in front of the camera.
 2. Following the input mode selection, the application will create the doodle image and classify the doodle.
 3. The result will be displayed.
-## Models
-### 1. SVM
-### 2. SVM with Kmeans
-### 3. KNN
-### 4. CNN
-### 5. Resnet
 ## Model Comparision
+|Sl. No.| Model| Train Accuracy| Test Accuracy|
+| --- | --- | --- | --- |
+|1. | KNN | 85.15| 82.17|
+|2. |SVM | 87.36| 84.58|
+|3. | SVM with Kmeans| 88.11| 86.09|
+|4. | CNN | 99.37| 97.20|
+|5. | Resnet | | |
 ## Conclusion
