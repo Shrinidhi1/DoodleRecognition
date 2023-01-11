@@ -26,5 +26,6 @@ The main objectives of this model are:
 |2. |SVM | 87.36| 84.58|
 |3. | SVM with Kmeans| 88.11| 86.09|
 |4. | CNN | 99.37| 97.20|
-|5. | Resnet | | |
+|5. | Resnet | 100| 96.78|
 ## Conclusion
+Hence, CNN was opted as it showed the best results on test data within minimal time. We used Graphical User Interface to implement the application on an user interface. Further it can be implemented as the fundamental model for sketch-based modeling and sketch-based image retrieval. 
