@@ -10,12 +10,12 @@ from sklearn.utils import shuffle
 import pickle
 
 def takeInput(classes, k, test=0):
-	TrainX, TrainY = np.zeros((1, 28, 28)), np.zeros((1,), dtype='int8')
+	TrainX, TrainY = np.zeros((1, 64, 64)), np.zeros((1,), dtype='int8')
 	for i, j in enumerate(classes):
 		x = np.load('dataset/' + j + '.npy')
 		x = x/255
 		x = x[10000*(k):10000*(k+1)]
-		x = np.reshape(x, (x.shape[0], 28, 28))
+		x = np.reshape(x, (x.shape[0], 64, 64))
 		TrainX = np.append(TrainX, x, axis=0)
 		if test==0:
 			y = np.load('KMeanY/' + classes[i] + '.npy')
