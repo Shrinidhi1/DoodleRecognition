@@ -11,12 +11,12 @@ from mlxtend.plotting import plot_decision_regions
 from sklearn.metrics import classification_report, confusion_matrix
 
 def takeInput(classes):
-    TrainX, TrainY = np.zeros((1, 28, 28)), np.zeros((1,), dtype='int8')
+    TrainX, TrainY = np.zeros((1, 64, 64)), np.zeros((1,), dtype='int8')
     for i, j in enumerate(classes):
         x = np.load('dataset/' + j + '.npy')
         x = x[:10000]
         x = x/255
-        x = np.reshape(x, (x.shape[0], 28, 28))
+        x = np.reshape(x, (x.shape[0], 64, 64))
         TrainX = np.append(TrainX, x, axis=0)
         y = np.ones((x.shape[0]), dtype='int8') * i
         TrainY = np.append(TrainY, y)
