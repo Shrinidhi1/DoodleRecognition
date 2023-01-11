@@ -20,6 +20,7 @@ The main objectives of this model are:
 2. Following the input mode selection, the application will create the doodle image and classify the doodle.
 3. The result will be displayed.
 ## Model Comparision
+We trained the models on 10 classes: Alarm clock, Apple, Birthday cake, Butterfly, Candle, Ceiling fan, Donut, Door, Eyeglasses and T-shirt with 1000 images in each class. The results were as follows:
 |Sl. No.| Model| Train Accuracy| Test Accuracy|
 | --- | --- | --- | --- |
 |1. | KNN | 85.15| 82.17|
@@ -28,4 +29,4 @@ The main objectives of this model are:
 |4. | CNN | 99.37| 97.20|
 |5. | Resnet | 100| 96.78|
 ## Conclusion
-Hence, CNN was opted as it showed the best results on test data within minimal time. We used Graphical User Interface to implement the application on an user interface. Further it can be implemented as the fundamental model for sketch-based modeling and sketch-based image retrieval. 
+We trained the models on 10 classes with 1000 images each and CNN showed the best results on test data within minimal time. Hence, CNN was opted. We implemented the scan hand drawn doodle images and the create doodle in air input modes on OpenCV. We used Graphical User Interface to implement the application on an user interface. Further, it can be used to implement sketch-based modelling and sketch-based image retrieval. 
