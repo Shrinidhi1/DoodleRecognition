@@ -13,14 +13,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 from keras import backend as K
 
-
-# Input shape: (28, 28)
+# Input shape: (64, 64)
 # Classes: n
+
+
 def hand_model(n):
     # num_of_classes = 1
     num_of_classes = n
     model = Sequential()
-    model.add(Conv2D(32, (5, 5), input_shape=(28, 28, 1), activation='relu'))
+    model.add(Conv2D(32, (5, 5), input_shape=(64, 64, 1), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='same'))
     model.add(Conv2D(64, (5, 5), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2), padding='same'))
@@ -48,12 +49,12 @@ def saveModel():
 
 
 def takeInput(classes, k):
-    TrainX, TrainY = np.zeros((1, 28, 28)), np.zeros((1,), dtype='int8')
+    TrainX, TrainY = np.zeros((1, 64, 64)), np.zeros((1,), dtype='int8')
     for i, j in enumerate(classes):
         x = np.load('dataset/' + j + '.npy')
         x = x/255
         x = x[40000*(k):40000*(k+1)]
-        x = np.reshape(x, (x.shape[0], 28, 28))
+        x = np.reshape(x, (x.shape[0], 64, 64))
         TrainX = np.append(TrainX, x, axis=0)
         y = np.ones((x.shape[0]), dtype='int8') * i
         TrainY = np.append(TrainY, y)
@@ -89,8 +90,8 @@ def main():
 	    train_x, test_x, train_y, test_y = train_test_split(TrainX, TrainY, random_state=0, test_size=0.1)
 	    print(train_y.shape)
 
-	    train_x = np.reshape(train_x, (train_x.shape[0], 28, 28, 1))
-	    test_x = np.reshape(test_x, (test_x.shape[0], 28, 28, 1))
+	    train_x = np.reshape(train_x, (train_x.shape[0], 64, 64, 1))
+	    test_x = np.reshape(test_x, (test_x.shape[0], 64, 64, 1))
 
 	    model.fit(train_x, train_y, validation_data=(test_x, test_y), epochs=10, batch_size=32)
     model.save('model/DoodleRecognition.h5')
