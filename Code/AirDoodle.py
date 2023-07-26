@@ -6,7 +6,8 @@ def func(x):
     print(x)
 
 
-def clearImpurities(hsv, Lower_hsv, Upper_hsv, kernel):
+def clearImpurities(hsv, Lower_hsv, Upper_hsv):
+    kernel = np.ones((5, 5), np.uint8)
     Mask = cv.inRange(hsv, Lower_hsv, Upper_hsv)
     Mask = cv.erode(Mask, kernel, iterations=1)
     Mask = cv.morphologyEx(Mask, cv.MORPH_OPEN, kernel)
@@ -34,8 +35,6 @@ def airDoodle():
     cv.createTrackbar("Val Min", "TrackBars", 117, 255, func)
 
     index = 0
-    kernel = np.ones((5, 5), np.uint8)
-
     Black_p = [deque(maxlen=1024)]
     color = (0, 0, 0)
     colorin = 0
@@ -70,7 +69,7 @@ def airDoodle():
             Upper_hsv = np.array([upper_hue, upper_saturation, upper_value])
             Lower_hsv = np.array([Lower_hue, Lower_saturation, Lower_value])
 
-            Mask = clearImpurities(hsv, Lower_hsv, Upper_hsv, kernel)
+            Mask = clearImpurities(hsv, Lower_hsv, Upper_hsv)
             contours, _ = cv.findContours(Mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
             center = None
 
