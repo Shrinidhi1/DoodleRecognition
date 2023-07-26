@@ -6,7 +6,7 @@ def func(x):
     print(x)
 
 
-def setMask(hsv, Lower_hsv, Upper_hsv, kernel):
+def clearImpurities(hsv, Lower_hsv, Upper_hsv, kernel):
     Mask = cv.inRange(hsv, Lower_hsv, Upper_hsv)
     Mask = cv.erode(Mask, kernel, iterations=1)
     Mask = cv.morphologyEx(Mask, cv.MORPH_OPEN, kernel)
