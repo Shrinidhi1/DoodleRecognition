@@ -70,7 +70,7 @@ def airDoodle():
             Upper_hsv = np.array([upper_hue, upper_saturation, upper_value])
             Lower_hsv = np.array([Lower_hue, Lower_saturation, Lower_value])
 
-            Mask = setMask(hsv, Lower_hsv, Upper_hsv, kernel)
+            Mask = clearImpurities(hsv, Lower_hsv, Upper_hsv, kernel)
             contours, _ = cv.findContours(Mask.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
             center = None
 
