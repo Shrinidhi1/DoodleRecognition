@@ -45,7 +45,7 @@ def airDoodle():
     # cv.rectangle(window, start_point, end_point, color, 2)
     # window = cv.rectangle(window, (20, 1), (110, 65), (0, 0, 0), 2)
 
-    cv.putText(window, "CLEAR", (33, 37), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2, cv.LINE_AA)
+    # cv.putText(window, "CLEAR", (33, 37), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2, cv.LINE_AA)
     # cv.namedWindow('Paint', cv.WINDOW_AUTOSIZE)
     start_point = (220, 100)
     end_point = (400, 250)
