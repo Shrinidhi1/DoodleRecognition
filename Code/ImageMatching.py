@@ -4,22 +4,19 @@ import cv2
 
 num = 122
 
-# Load the doodle saved
-x = np.load('intermediate/Doodle.npy').astype('float32')
-
-# Convert to black and white
-x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
-
-# Invert Colors
-for i in range(28):
-    for j in range(28):
-        x[i, j] = 255 - x[i, j]
+def convertColors(x):
+    x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
+    # Invert Colors
+    for i in range(150):
+        for j in range(150):
+            x[i, j] = 255 - x[i, j]
+    return x
 
 
 def cornerCorrection(x):
-    for i in range(28):
-        for j in range(28):
-            if i==0 or i==1 or i==26 or i==27 or j == 0 or j==1 or j==26 or j==27:
+    for i in range(150):
+        for j in range(150):
+            if i==0 or i==1 or i==148 or i==149 or j == 0 or j==1 or j==148 or j==149:
                 x[i, j] = 0
     return x
 
@@ -32,10 +29,10 @@ def increaseContrast(n):
         return n+bias
 
 
-def filter(num):
+def filter(num, x):
     img = x.copy()
-    for i in range(28):
-        for j in range(28):
+    for i in range(150):
+        for j in range(150):
             # print(img[i, j])
             # print("\n")
             if img[i, j].any() < num:
@@ -48,7 +45,9 @@ def filter(num):
 
 
 def imageMatch():
-    img = filter(num)
+    x = np.load('intermediate/Doodle.npy').astype('float32')
+    x = convertColors(x)
+    img = filter(num, x)
     # plt.imshow(img)
     # plt.show()
     np.save('intermediate/Doodle.npy', img)
