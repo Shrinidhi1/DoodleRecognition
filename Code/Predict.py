@@ -4,7 +4,6 @@ from matplotlib import pyplot as plt
 import cv2 as cv
 
 def main():
-    classes = ["Candle", "Eye Glasses", "T-Shirt"]
     p = np.load('intermediate/Doodle.npy')
     # print(p.shape)
     p = p / 255
