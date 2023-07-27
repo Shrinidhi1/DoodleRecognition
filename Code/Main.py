@@ -45,6 +45,7 @@ def scanImage():
 
 def createDoodle():
     airDoodle()
+    imageMatch()
     prediction()
 
 window = Tk()
